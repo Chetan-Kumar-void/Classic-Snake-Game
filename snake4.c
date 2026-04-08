@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include<stdio.h> 
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
@@ -242,14 +242,27 @@ int main() {
                 getchar();
                 break;
 
-            case 2:
-                printf("\n--- PROGRAM STATEMENT ---\n");
-                printf("Snake game using linked list.\n");
-                printf("Eat food, grow, avoid collision.\n");
+            case 2: {
+                    system("cls");
 
-                printf("\nPress Enter...");
-                getchar();
-                break;
+             FILE *fp = fopen("program_statement_symbols.txt", "r");
+
+                 if (fp == NULL) {
+                        printf("Error: Could not open file!\n");
+    } else {
+                 char ch;
+
+        while ((ch = fgetc(fp)) != EOF) {
+            printf("%c", ch);
+        }
+
+        fclose(fp);
+    }
+
+    printf("\n\nPress Enter...");
+    getchar();
+    break;
+}
 
             case 3: {
                 printf("\n--- SCORECARD ---\n");

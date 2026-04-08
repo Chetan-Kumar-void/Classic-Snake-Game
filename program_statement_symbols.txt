@@ -1,0 +1,96 @@
+                        PROGRAM STATEMENT
+
+The objective of this program is to develop a console-based Snake Game
+using the C programming language. The program demonstrates the use of
+data structures such as linked lists along with real-time user
+interaction and dynamic rendering in a terminal environment.
+
+                                 -------------------------------
+                                         CORE LOGIC FLOW
+                                 -------------------------------
+                                     User Input (W/A/S/D)
+                                        | 
+                                  Update Direction
+                                        | 
+                                    Move Snake (Linked List) 
+                                        |
+                                     Check Collision 
+                                     /      \
+                              Game Over  Continue 
+                                             | 
+                                          Check Food  
+                                            | 
+                                         Grow Snake  ->   Increase Score
+                                                                 |
+                                                       Render Updated Board
+
+                                 -------------------------------
+
+SNAKE IMPLEMENTATION
+
+Snake = Linked List
+
+Head -> Body -> Tail
+
+Movement: [New Head Added] -> [Tail Removed]
+
+Eating Food: [New Head Added] -> [Tail NOT Removed] -> Snake Grows
+
+  -------------------------------
+  FOOD SYSTEM
+  -------------------------------
+  > Randomly generated inside boundaries 
+  > Avoids snake body
+  > Triggers growth on collision
+
+  -------------------------------
+
+COLLISION DETECTION
+
+> Wall Collision -> Game Over
+> Self Collision -> Game Over
+
+  -------------------------------
+  RENDERING SYSTEM
+  -------------------------------
+  For each cell:
+
+  IF Wall -> Print | or –
+   IF Snake Head -> Print @@
+    IF Snake Body -> Print * 
+    IF Food -> Print F 
+    ELSE -> Print empty
+  -------------------------------
+
+DATA STRUCTURES USED
+
+1.  Linked List (Snake) -> Dynamic growth -> Efficient movement
+
+2.  Linked List (Score History) -> Stores previous scores
+
+  -------------------------------
+  MENU SYSTEM
+  -------------------------------
+  1 -> Members List 
+  2 -> Program Statement 
+  3 -> Scorecard 
+  4 -> Play Game 
+  5 -> Exit
+
+  -------------------------------
+
+KEY FEATURES
+
+> Real-time keyboard input
+> Dynamic snake movement
+> Score tracking
+> Clean rendering logic
+> Menu-driven interface
+
+  ------------
+  CONCLUSION
+  ------------
+
+This program demonstrates the integration of data structures, dynamic
+memory management, and real-time input handling to build an interactive
+console-based game.
