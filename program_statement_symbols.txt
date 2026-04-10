@@ -1,34 +1,33 @@
-                        PROGRAM STATEMENT
+PROGRAM STATEMENT
 
-The objective of this program is to develop a console-based Snake Game
-using the C programming language. The program demonstrates the use of
-data structures such as linked lists along with real-time user
-interaction and dynamic rendering in a terminal environment.
+The objective of this program is to develop a console-based Snake Game using the C programming language. The program demonstrates the use of dynamic data structures such as linked lists, real-time user input handling using non-blocking keyboard techniques, and terminal-based rendering using ANSI escape sequences.
 
-                                 -------------------------------
-                                         CORE LOGIC FLOW
-                                 -------------------------------
-                                     User Input (W/A/S/D)
+```
+                             -------------------------------
+                                     CORE LOGIC FLOW
+                             -------------------------------
+                                 User Input (W/A/S/D or 8/4/2/6)
+                                    | 
+                              Update Direction
+                                    | 
+                                Move Snake (Linked List) 
+                                    |
+                                 Check Collision 
+                                 /      \
+                          Game Over  Continue 
+                                         | 
+                                      Check Food  
                                         | 
-                                  Update Direction
-                                        | 
-                                    Move Snake (Linked List) 
-                                        |
-                                     Check Collision 
-                                     /      \
-                              Game Over  Continue 
-                                             | 
-                                          Check Food  
-                                            | 
-                                         Grow Snake  ->   Increase Score
-                                                                 |
-                                                       Render Updated Board
+                                     Grow Snake  ->   Increase Score
+                                                             |
+                                                   Render Updated Board
 
-                                 -------------------------------
+                             -------------------------------
+```
 
 SNAKE IMPLEMENTATION
 
-Snake = Linked List
+Snake = Singly Linked List
 
 Head -> Body -> Tail
 
@@ -36,61 +35,103 @@ Movement: [New Head Added] -> [Tail Removed]
 
 Eating Food: [New Head Added] -> [Tail NOT Removed] -> Snake Grows
 
-  -------------------------------
-  FOOD SYSTEM
-  -------------------------------
-  > Randomly generated inside boundaries 
-  > Avoids snake body
-  > Triggers growth on collision
+---
 
-  -------------------------------
+## FOOD SYSTEM
+
+> Randomly generated within boundaries using rand()
+> Ensures food does not overlap with snake body
+> Triggers snake growth and score increment on collision
+
+---
 
 COLLISION DETECTION
 
 > Wall Collision -> Game Over
 > Self Collision -> Game Over
 
-  -------------------------------
-  RENDERING SYSTEM
-  -------------------------------
-  For each cell:
+---
 
-  IF Wall -> Print | or –
-   IF Snake Head -> Print @@
-    IF Snake Body -> Print * 
-    IF Food -> Print F 
-    ELSE -> Print empty
-  -------------------------------
+## RENDERING SYSTEM
+
+> Uses ANSI escape sequences for terminal rendering
+> Cursor repositioning (\033[H) is used instead of clearing screen
+> Board is redrawn in each frame to simulate motion
+
+For each cell:
+
+IF Wall -> Print ██
+IF Snake Head -> Print @@
+IF Snake Body -> Print ++
+IF Food -> Print ◆◆
+ELSE -> Print empty space
+
+---
+
+INPUT HANDLING
+
+> Non-blocking keyboard input implemented using termios and fcntl
+> Allows real-time movement without pressing Enter
+> Prevents reverse direction to avoid instant self-collision
+
+---
 
 DATA STRUCTURES USED
 
-1.  Linked List (Snake) -> Dynamic growth -> Efficient movement
+1. Singly Linked List (Snake)
+   -> Enables dynamic growth
+   -> Efficient insertion at head
 
-2.  Linked List (Score History) -> Stores previous scores
+2. Linked List (Score History)
+   -> Stores previous scores
+   -> Behaves like a stack (LIFO order)
 
-  -------------------------------
-  MENU SYSTEM
-  -------------------------------
-  1 -> Members List 
-  2 -> Program Statement 
-  3 -> Scorecard 
-  4 -> Play Game 
-  5 -> Exit
+---
 
-  -------------------------------
+## MENU SYSTEM
+
+1 -> Members List
+2 -> Program Statement (read from file)
+3 -> Scorecard
+4 -> Play Game
+5 -> Exit
+
+---
 
 KEY FEATURES
 
-> Real-time keyboard input
-> Dynamic snake movement
-> Score tracking
-> Clean rendering logic
+> Real-time keyboard input (non-blocking)
+> Dynamic snake movement using linked list
+> Score tracking with history
+> Efficient terminal rendering using escape sequences
 > Menu-driven interface
 
-  ------------
-  CONCLUSION
-  ------------
+---
 
-This program demonstrates the integration of data structures, dynamic
-memory management, and real-time input handling to build an interactive
-console-based game.
+## CONCLUSION
+
+This program demonstrates the practical implementation of linked lists, dynamic memory management, and low-level terminal control techniques to create an interactive console-based game. It highlights how real-time systems can be simulated within a text-based environment without using graphical libraries.
+
+---
+
+## REFERENCES
+
+1. Brian W. Kernighan and Dennis M. Ritchie, *The C Programming Language*, 2nd Edition, Prentice Hall
+
+2. ANSI Escape Code Documentation
+
+3. Linux Manual Pages (man7.org)
+
+   * termios(3)
+   * fcntl(2)
+
+4. Classic Snake Game Concept
+   Inspired by early arcade implementations and Nokia mobile versions
+
+5. GeeksforGeeks – Linked List in C
+   https://www.geeksforgeeks.org/linked-list-set-1-introduction/
+
+6. Stack Overflow Developer Community
+   https://stackoverflow.com/
+
+---
