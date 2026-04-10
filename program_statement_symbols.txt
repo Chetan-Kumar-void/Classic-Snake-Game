@@ -1,4 +1,4 @@
-PROGRAM STATEMENT
+                                                                                 PROGRAM STATEMENT
 
 The objective of this program is to develop a console-based Snake Game using the C programming language. The program demonstrates the use of dynamic data structures such as linked lists, real-time user input handling using non-blocking keyboard techniques, and terminal-based rendering using ANSI escape sequences.
 
@@ -23,6 +23,8 @@ The objective of this program is to develop a console-based Snake Game using the
                                                    Render Updated Board
 
                              -------------------------------
+
+
 ```
 
 SNAKE IMPLEMENTATION
